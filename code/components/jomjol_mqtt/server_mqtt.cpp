@@ -234,8 +234,6 @@ bool publishSystemData(int qos) {
     sprintf(tmp_char, "%d", get_WIFI_RSSI());
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "wifiRSSI", std::string(tmp_char), qos, retainFlag);
 
-    allSendsSuccessed |= MQTTPublish(maintopic + "/" + "wifiSSID", std::string(getSSID()), qos, retainFlag);
-
     sprintf(tmp_char, "%d", (int)temperatureRead());
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "CPUtemp", std::string(tmp_char), qos, retainFlag);
 
@@ -267,6 +265,7 @@ bool publishStaticData(int qos) {
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "fwVersion", getFwVersion().c_str(), qos, retainFlag);
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "MAC", getMac(), qos, retainFlag);
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "IP", *getIPAddress(), qos, retainFlag);
+    allSendsSuccessed |= MQTTPublish(maintopic + "/" + "wifiSSID", getSSID(), qos, retainFlag);
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "hostname", wlan_config.hostname, qos, retainFlag);
 
     std::stringstream stream;
