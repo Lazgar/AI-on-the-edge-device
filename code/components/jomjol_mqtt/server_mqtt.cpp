@@ -265,7 +265,7 @@ bool publishStaticData(int qos) {
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "fwVersion", getFwVersion().c_str(), qos, retainFlag);
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "MAC", getMac(), qos, retainFlag);
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "IP", *getIPAddress(), qos, retainFlag);
-    allSendsSuccessed |= MQTTPublish(maintopic + "/" + "wifiSSID", getSSID().c_str(), qos, retainFlag);
+    allSendsSuccessed |= MQTTPublish(maintopic + "/" + "wifiSSID", *getSSID(), qos, retainFlag);
     allSendsSuccessed |= MQTTPublish(maintopic + "/" + "hostname", wlan_config.hostname, qos, retainFlag);
 
     std::stringstream stream;
