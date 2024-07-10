@@ -45,9 +45,9 @@ std::string getFwVersion(void) {
         buf = "Development-Branch: " + std::string(GIT_BRANCH);
     }
     else { // Tag is set, ignore branch
-        buf = "Release: " + std::string(GIT_TAG);
+        buf = std::string(GIT_TAG);
     }
-    buf = buf + " (Commit: " + std::string(GIT_REV) + ")";
+    // buf = buf + " (Commit: " + std::string(GIT_REV) + ")";
 
     return buf;
 }
