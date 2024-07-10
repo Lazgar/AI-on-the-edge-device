@@ -42,7 +42,7 @@ const char* libfive_git_branch(void)
 std::string getFwVersion(void) {
     std::string buf;
     if (std::string(GIT_TAG) == "") { // Tag not set, show branch
-        buf = "Development-Branch: " + std::string(GIT_BRANCH);
+        buf = std::string(GIT_TAG);
     }
     else { // Tag is set, ignore branch
         buf = std::string(GIT_TAG);
